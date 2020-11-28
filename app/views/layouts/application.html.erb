@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> 
+  </head>
+
+  <!--
+     <div class="container">
+    
+      <% if user_signed_in? %>  
+         Logged in as <strong><%= current_user.email %></strong>.
+         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>|
+         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>|
+      <% else %>
+         <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+         <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>|
+       <% end %>
+   -->    
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="d-flex flex-grow-1">
+      <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
+      <a class="navbar-brand d-none d-lg-inline-block" href="#">
+          Blog
+      </a>
+     
+      <div class="w-100 text-right">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+      </div>
+  </div>
+  <% if user_signed_in? %> 
+   <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+      <ul class="navbar-nav ml-auto flex-nowrap">
+          <li class="nav-item">
+             Loged in as <strong><%= current_user.email.split('@')[0] %></strong>
+         
+          </li>
+          <li class="nav-item">
+          <li>
+          <li class="nav-item">
+              <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link m-2 menu-item' %>
+          </li>
+          <li class="nav-item">
+               <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link m-2 menu-item'  %>
+          </li>
+          <li class="nav-item">
+              
+          </li>
+      </ul>
+
+   </div>
+  <% else %>
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+      <ul class="navbar-nav ml-auto flex-nowrap">
+          
+          <li class="nav-item">
+               <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link m-2 menu-item'  %> 
+          </li>
+          <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
+          <li class="nav-item">
+           <%= link_to "Login", new_user_session_path, :class => 'navbar-link m-2 menu-item'  %>
+          </li>
+      </ul>
+
+    </div>
+<% end %>
+</nav>
+
+
+
+<!-- alerts  -->
+     <% if notice %>
+       <p class="alert alert-success"><%= notice %></p>
+     <% end %>
+     <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+     <% end %> 
+
+  <div class='container'>
+    <%= yield %>
+  </div>
+
+</div>  
+
+</body>
+
+</html>
