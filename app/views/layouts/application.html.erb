@@ -24,7 +24,7 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">    
   <div class="d-flex flex-grow-1">
       <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
       <a class="navbar-brand d-none d-lg-inline-block" href="#">
@@ -40,17 +40,17 @@
   <% if user_signed_in? %> 
    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
       <ul class="navbar-nav ml-auto flex-nowrap">
-          <li class="nav-item">
+          <li class="nav-link">
              Loged in as <strong><%= current_user.email.split('@')[0] %></strong>
          
           </li>
           <li class="nav-item">
           <li>
           <li class="nav-item">
-              <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link m-2 menu-item' %>
+            <strong>  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link' %></strong>
           </li>
           <li class="nav-item">
-               <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link m-2 menu-item'  %>
+              <strong>  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link' %></strong>
           </li>
           <li class="nav-item">
               
@@ -63,11 +63,11 @@
       <ul class="navbar-nav ml-auto flex-nowrap">
           
           <li class="nav-item">
-               <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link m-2 menu-item'  %> 
+               <strong> <%= link_to "Sign up", new_user_registration_path, :class => 'nav-link'  %> </strong>
           </li>
           <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
           <li class="nav-item">
-           <%= link_to "Login", new_user_session_path, :class => 'navbar-link m-2 menu-item'  %>
+            <strong><%= link_to "Login", new_user_session_path, :class => 'nav-link'  %></strong>
           </li>
       </ul>
 

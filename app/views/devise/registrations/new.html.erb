@@ -1,29 +1,94 @@
-<h2>Sign up</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Registration Page (v2)</title>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+</head>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<body class="hold-transition register-page">
+<div class="col-sm-6  mx-auto">
+<div class="register-box ">
+  <div class="card card-outline card-primary  ">
+        <div class="card-header text-center">
+            <h2>Sign up</h2>
+        </div>
+    <div class="card-body text-center">
+      <p class="login-box-msg">Register a new user</p>
+       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :class => "text-center") do |f| %>
+       <%= render "devise/shared/error_messages", resource: resource %>
+      
+        <div class="input-group mb-3 w-80 ">
+          <%# <%= f.label :email , :class => "form-control  "%>
+          <%# <br /> %> 
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control ", :placeholder =>"Enter e-mail" %>
+          <div class="input-group-append ">
+              <div class="input-group-text ">
+                <span class="fas fa-envelope "></span>
+              </div>
+           </div>    
+        </div>
+    
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+        <div class="input-group mb-3 w-80">
+          <%# <%= f.label :password , :class => "form-control "%> 
+          <%# <% if @minimum_password_length %> 
+          <%# <p> <em>(<%= @minimum_password_length %> 
+          <%# characters minimum)</em></p> %> 
+          <%# <% end %>
+          <%# <br /> %> 
+          <%= f.password_field :password, autocomplete: "new-password" , :class => "form-control", :placeholder =>"enter password"%>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>       
+        </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+        <div class="input-group mb-3 w-80 ">
+           <%# <%= f.label :password_confirmation %>
+            <%# <br /> %> 
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "form-control  ", :placeholder =>"Re-enter password"%>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div> 
+             </div>
+        </div>
+  
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+        <div class="col-md-4-center bg-light ">
+         <%= f.submit "Sign up", :class => "btn btn-block btn-primary " %>
+    
+        </div>
+          <% end %>
 
-<%= render "devise/shared/links" %>
+        <div class="col text-center">
+          <%= render "devise/shared/links" %>
+         </div>
+
+
+     </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
+</div>
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+</body>
+</html>
