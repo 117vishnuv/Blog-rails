@@ -1,16 +1,71 @@
-<h2>Forgot your password?</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog | Forgot password </title>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+</head>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<body class="hold-transition register-page">
+<div class="col-sm-6  mx-auto">
+<div class="register-box ">
+  <div class="card card-outline card-primary  ">
+        <div class="card-header text-center">
+            <h2>Forgot your password? </h2>
+        </div>
+    <div class="card-body text-center">
+      <p class="login-box-msg">We will sent you a password-reset link to the registerd mail</p>
+       <%= form_for(resource, as: resource_name, url: password_path(resource_name) , html: { method: :post }, :class => "text-center") do |f| %>
+       <%= render "devise/shared/error_messages", resource: resource %>
+        <div class = "container w-75">
+        <div class="input-group mb-3 ">
+          <%# <%= f.label :email , :class => "form-control  "%>
+          <%# <br /> %> 
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control  ", :placeholder =>"Enter e-mail" %>
+          <div class="input-group-append ">
+              <div class="input-group-text ">
+                <span class="fa fa-envelope " ></span>
+              </div>
+           </div>    
+        </div>
+        </div>
+    
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+  
+         <div class = "container w-75">
+        <div class="col-md-4-center bg-light ">
+         <%= f.submit "Send me password-reset link", :class => "btn btn-block btn-primary " %>
+         </div>
+        </div>
+          <% end %>
+       
+        <div class="col text-center">
+          <%= render "devise/shared/links" %>
+         </div>
+        
 
-<%= render "devise/shared/links" %>
+
+     </div>
+    <!-- /.form-box -->
+  </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
+</div>
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+</body>
+</html>
