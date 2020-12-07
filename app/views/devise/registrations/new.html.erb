@@ -28,7 +28,18 @@
       <p class="login-box-msg">Register a new user</p>
        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :class => "text-center") do |f| %>
        <%= render "devise/shared/error_messages", resource: resource %>
-      
+       
+       <div class="input-group mb-3 w-80 ">
+          <%# <%= f.label :email , :class => "form-control  "%>
+          <%# <br /> %> 
+          <%=  f.text_field :username , autofocus: true, autocomplete: "username", :class => "form-control ", :placeholder =>"Enter username" %>
+          <div class="input-group-append ">
+              <div class="input-group-text ">
+                <span class="fa fa-user  " style='font-size:24px' ></span>
+              </div>
+           </div>    
+        </div>
+        
         <div class="input-group mb-3 w-80 ">
           <%# <%= f.label :email , :class => "form-control  "%>
           <%# <br /> %> 

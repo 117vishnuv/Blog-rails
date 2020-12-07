@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
     <title>Blog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -22,9 +30,9 @@
        <% end %>
    -->    
 
-<body>
- <% if user_signed_in? %> 
-<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">    
+<body class="hold-transition  layout-navbar-fixed">
+<div class="wrapper"> 
+<nav class="main-header navbar navbar-expand navbar-dark bg-secondary">    
   <div class="d-flex flex-grow-1">
       <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
       <a class="navbar-brand d-none d-lg-inline-block" href="/">
@@ -38,13 +46,13 @@
           </button>
       </div>
   </div>
- 
+   <% if user_signed_in? %> 
    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
       <ul class="navbar-nav ml-auto flex-nowrap">
           <li class="nav-link">
-             Loged in as <strong><%= current_user.email.split('@')[0] %></strong>
-         
-          </li>
+             Loged in as <strong><%= current_user.username %></strong>
+         </li>
+        
           <li class="nav-item">
           <li>
           <li class="nav-item">
@@ -91,7 +99,14 @@
   </div>
 
 </div>  
-
+</div>
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
 </body>
-
 </html>

@@ -26,11 +26,24 @@
       <p class="login-box-msg"></p>
        <%= form_for(resource, as: resource_name, url: registration_path(resource_name) , html: { method: :put }, :class => "text-center") do |f| %>
        <%= render "devise/shared/error_messages", resource: resource %>
-      
+
+
+       <div class="input-group mb-3 w-80 ">
+          <%# <%= f.label :email , :class => "form-control  "%>
+          <%# <br /> %> 
+          <%=  f.text_field :username , autofocus: true,  :class => "form-control ", :placeholder =>"Enter username" %>
+          <div class="input-group-append ">
+              <div class="input-group-text ">
+                <span class="fa fa-envelope " ></span>
+              </div>
+           </div>    
+        </div>
+
+
         <div class="input-group mb-3 w-80 ">
           <%# <%= f.label :email , :class => "form-control  "%>
           <%# <br /> %> 
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control ", :placeholder =>"Enter e-mail" %>
+          <%= f.email_field :email, autofocus: true, :class => "form-control ", :placeholder =>"Enter e-mail" %>
           <div class="input-group-append ">
               <div class="input-group-text ">
                 <span class="fa fa-envelope " ></span>

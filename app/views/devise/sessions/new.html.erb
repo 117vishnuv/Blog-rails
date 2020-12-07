@@ -31,10 +31,10 @@
         <div class="input-group mb-3 w-80 ">
           <%# <%= f.label :email , :class => "form-control  "%>
           <%# <br /> %> 
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control ", :placeholder =>"Enter e-mail" %>
+          <%=  f.text_field :login , autofocus: true, autocomplete: "login", :class => "form-control ", :placeholder =>"User-name/e-mail" %>
           <div class="input-group-append ">
               <div class="input-group-text ">
-                <i class="fa fa-envelope "></i>
+                <i class="fa fa-user " style='font-size:24px'></i>
               </div>
            </div>    
         </div>

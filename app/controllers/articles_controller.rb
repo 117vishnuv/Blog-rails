@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
    
-  http_basic_authenticate_with name: "admin", password: "11", except: [:index, :show]
+  # http_basic_authenticate_with name: "admin", password: "11", except: [:index, :show]
   
-  def new
+    def new
         @article = Article.new
     end
     
@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
     
     def create
          @article = Article.new(article_params)
+         @article.authername = current_user.username if current_user
          if @article.save
           redirect_to @article
         else
@@ -46,6 +47,6 @@ class ArticlesController < ApplicationController
    
     private
     def article_params
-       params.require(:article).permit(:title, :text)
+       params.require(:article).permit(:title, :text, :authername)
     end
 end
