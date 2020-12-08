@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
-   
+  
+  skip_before_action :authenticate_user!, :only => [:show]
+
+
   # http_basic_authenticate_with name: "admin", password: "11", except: [:index, :show]
   
     def new

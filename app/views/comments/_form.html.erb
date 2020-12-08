@@ -1,14 +1,36 @@
 
+<%# <%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %> 
+  <%# <p> %>
+    <%# <%= form.label :commenter<br>  %>
+    <%# <%= form.text_field :commenter %> 
+  <%# </p> %>
+  <%# <p> %>
+    <%# <%= form.label :body<br> %> 
+    <%# <%= form.text_area :body %> 
+  <%# </p> %>
+  <%# <p> %>
+    <%# <%= form.submit %> 
+  <%# </p> %>
+<%# <% end %> 
 <%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
-  <p>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
-  </p>
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
+  <div class="container">
+        <div class="row bootstrap snippets bootdeys">
+          <div class="col-md-12 col-sm-12">
+            <div class="comment-wrapper">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    Comment panel
+                </div>
+                <div class="panel-body">
+                    <%= form.hidden_field :commenter, value: current_user.username.to_s if user_signed_in? %>
+                     <%=  form.text_area :body , :class => "form-control ", :placeholder =>"Write acomment....", :rows => "2" %>
+                    <br>
+                    <%# <button type="button" class="btn btn-info pull-right">Post</button> %>
+                    <%= form.submit "Post", :class => "btn btn-info pull-right" %>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+  </div>                
 <% end %>

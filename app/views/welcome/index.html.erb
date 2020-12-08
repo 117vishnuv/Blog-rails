@@ -1,5 +1,33 @@
+<%# <h1 class='glow'>Click to see blogs</h1> %>
+<%# <div class = "container"> %>
+<%# <%= link_to 'My Blog', controller: 'articles', :class =>"text-centre" %> 
+<%# </div> %>
+<head><title><%=@con= "Articles"%></title></head>
+<table style="height: 60px;">
+ <tbody>
+   <tr>
+     <td  class='align-middle'>   
+     <button type="button" class="btn  btn-sm " style="background-color:#003031;">
+           <i class="fa fa-plus text-white" ></i> 
+                  <%= link_to 'New article', new_article_path ,  :class => 'text-white' %>
+     </button>
+    </td>
+   </tr>
+  </tbody>
+</table>
 
-<h1 class='glow'>Click to see blogs</h1>
-<div class = "container">
-<%= link_to 'My Blog', controller: 'articles', :class =>"text-centre" %>
-</div>
+<%# <%= link_to 'New article', new_article_path %> 
+ <% @articles.each do |article| %>
+<div class=" jumbotron bg-white ">
+<%# <div class=""> %>
+  <h1  class='glow'><%= article.title.capitalize%> <h5><span class="badge">~ <%= article.authername %></span></h5></h1>
+    <p><%= article.text[0,200] %>.....</p>
+    <div class='container'>
+      <div class="pull-right label">
+        <%# <button type="button" class="btn btn-outline-primary"><%= link_to 'Read', article_path(article),  :class => 'text-primary' </button> %> 
+         <%= link_to 'Read more..', article_path(article), {:style=>'color:#e3342f;'} %>
+      </div>
+    </div>
+  <%# </div> %>
+ </div> 
+<% end %>

@@ -1,29 +1,72 @@
 <head> <title> <%=@con= @article.title%></title></head>
 <div class="container-md mt-2  border bg-dark text-center ">
-    <h1 class = "text-light"><%= @article.title.capitalize %> <h5><span class="badge text-light">~ <%= @article.authername %></span></h5></h1>
+   <h4><span class="badge text-light">Written By ~ <%= @article.authername %></span></h4>
+    <%# <h1 class = "text-light"><%= @article.title.capitalize </h1>  %>
 </div> 
 <div class="jumbotron">
    <p><%= @article.text %>.</p>
    <div class='container'>
-   <% if current_user.username==@article.authername %> 
-    <div class="pull-right label">
-        <button type="button" class="btn btn-outline-success"><%= link_to 'Edit', edit_article_path(@article) ,  :class => 'text-success'%></button>
-        <button type="button" class="btn btn-outline-danger"><%= link_to 'Delete', article_path(@article),  :class => 'text-danger',method: :delete,data: { confirm: 'Are you sure?' } %></button>
-      </div>
+     <%if user_signed_in? %>
+     <% if current_user.username==@article.authername %> 
+     <div class="pull-right label">
+        <%# <button type="button" class="btn btn-outline-success"><%= link_to 'Edit', edit_article_path(@article) ,  :class => 'text-success'</button> %> 
+         <i class="fa fa-edit" ></i>
+          <%= link_to 'Edit', edit_article_path(@article) ,  :style => 'color:#8e000b;' %>
+        <%# <button type="button" class="btn btn-outline-danger"><%= link_to 'Delete', article_path(@article),  :class => 'text-danger',method: :delete,data: { confirm: 'Are you sure?' }</button> %> 
+        <i class="fa fa-trash" ></i>
+          <%= link_to 'Delete',article_path(@article) ,  :class => '',method: :delete,data: { confirm: 'Are you sure?' }, :style => 'color:#000000;'%>
+     </div>
+     </div>
+     <% end %>
+     <% end %>
+     <%# comments %>
+      <div class="jumbotron">
+        <hr>
+     <div class="container">
+        <div class="row bootstrap snippets bootdeys">
+          <div class="col-md-12 col-sm-12">
+            <div class="comment-wrapper">
+            <div class="panel panel-info">
+               
+                <div class="panel-body">
+                     <%= render 'comments/form' %> 
+                    <div class="clearfix"></div>
+                    <hr>
+                    <ul class="media-list">
+                        <%# <li class="media"> %>
+                            <%# <a href="#" class="pull-left"> %>
+                                <%# <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle"> %>
+                            <%# </a> %>
+                            <%# <div class="media-body"> %>
+                                <%# <span class="text-muted pull-right"> %>
+                                    <%# <small class="text-muted">30 min ago</small> %>
+                                <%# </span> %>
+                                <%# <strong class="text-success">@<%= @comment.commenter</strong> %>
+                                <%# <p> %>
+                                        <%= render @article.comments %>
+                                <%# </p> %>
+                            </div>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+          </div>
+
+         </div>
+      </div>  
     </div>
-    <% end %>
- </div> 
-
-
+    </div>
+</div> 
  
-<h2>Comments</h2>
+
 <%# rendering from views/comments/_comment.html.erb %>
 
- <%= render @article.comments %>
+ <%# <%= render @article.comments %> 
 
-<h2>Add a comment:</h2>
+<%# <h2>Add a comment:</h2> %>
 <%# rendering from views/comments/_form.html.erb %>
- <%= render 'comments/form' %> 
+ <%# <%= render 'comments/form' %> 
   
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<%# <%= link_to 'Edit', edit_article_path(@article) %> 
+<%# <%= link_to 'Back', articles_path %> 

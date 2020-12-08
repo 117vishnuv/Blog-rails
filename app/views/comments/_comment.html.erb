@@ -1,16 +1,41 @@
+<% if comment.commenter %>
+<li class="media">
+   <%# <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle"> %>
+   <div class="header-module--logo">
+      <i class="fa fa-comment"></i> <br>
+   </div>
+   <div class="media-body">                           
+     <strong class="text-success">@<%= comment.commenter %></strong>
+     <% if user_signed_in? %>
+     <% if comment.commenter == current_user.username.to_s %>
+       <%= link_to  [comment.article, comment],method: :delete, 
+                         data: { confirm: 'Are you sure?' } do %>
+          <i class="fa fa-trash "></i>
+       <%end%>
+       <%end%>         
+    <% end %>
+  <p  class = "pull-center">
+    <%= comment.body%>  
+  </p>
+ </div>
+</li>  
+<% end %>
+<%# </div> %>
+              
 
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
+<%# <p> %>
+  <%# <strong>Commenter:</strong> %>
+  <%# <%= comment.commenter %> 
+<%# </p> %>
+ <%# <p> %>
+  <%# <strong>Comment:</strong> %>
+  <%# <%= comment.body %>
+<%# </p> %>
  
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
+<%# <p> %>
+<%#   <%= link_to 'Destroy Comment', [comment.article, comment],
+                method: :delete, 
+                data: { confirm: 'Are you sure?' } %>
+
  
-<p>
-  <%= link_to 'Destroy Comment', [comment.article, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
+ <%# </p> %>

@@ -34,7 +34,9 @@
 <div class="   wrapper " > 
 <nav class="main-header navbar navbar-expand headline-module--headline__wrapper--2sPV6" >    
   <div class=" nav-iem d-flex flex-grow-1  d-none d-sm-inline-block ">
-       <%=image_tag("ruby2.png", alt: "ruby logo" , :class => "header-module--logo")%>
+      <%= link_to root_path do %>
+         <%=image_tag("ruby2.png", alt: "ruby logo" , :class => "header-module--logo")%>
+      <% end %>
       <div class="w-100 text-right">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
               <span class="navbar-toggler-icon"></span>
@@ -86,9 +88,10 @@
 <%# Second navabar %>
 <%# <% if user_signed_in? %> 
 <nav class="main-header navbar navbar-expand headline-module--headline__wrapper--2sPV6 extend "  style= "background: #e3342f;">
+   <%# <%= link_to 'New article', new_article_path ,  :class => 'headline-module--headline--2EZlD', :style=>'font-size:16px;' %>
    <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
-      
-  <div class="container ">
+    <div class="container ">
+    
      <div class="col-sm-16  mx-auto">
      <div class=" ">
          
