@@ -4,15 +4,15 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <%# <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"> %>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <%# <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css"> %>
     <!-- Theme style -->
-    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+    <%# <link rel="stylesheet" href="../../dist/css/adminlte.min.css"> %>
     <title>Blog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <%# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> 
   </head>
@@ -30,40 +30,39 @@
        <% end %>
    -->    
 
-<body class="hold-transition  layout-navbar-fixed">
-<div class="wrapper"> 
-<nav class="main-header navbar navbar-expand navbar-dark bg-secondary">    
-  <div class="d-flex flex-grow-1">
-      <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
-      <a class="navbar-brand d-none d-lg-inline-block" href="/">
-          Blog
-      </a>
-     
-     
+<body class="hold-transition  layout-navbar-fixed b-body">
+<div class="   wrapper " > 
+<nav class="main-header navbar navbar-expand headline-module--headline__wrapper--2sPV6" >    
+  <div class=" nav-iem d-flex flex-grow-1  d-none d-sm-inline-block ">
+       <%=image_tag("ruby2.png", alt: "ruby logo" , :class => "header-module--logo")%>
       <div class="w-100 text-right">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
               <span class="navbar-toggler-icon"></span>
           </button>
       </div>
   </div>
+  
    <% if user_signed_in? %> 
    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
       <ul class="navbar-nav ml-auto flex-nowrap">
-          <li class="nav-link">
+          <li class="nav-link  nav__item--14wsO ">
              Loged in as <strong><%= current_user.username %></strong>
          </li>
+         <li class="nav-item">
+          <a class=" nav__item--14wsO nav-link" href="/">
+          Home
+          </a>
+          </li>
         
           <li class="nav-item">
           <li>
           <li class="nav-item">
-            <strong>  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link' %></strong>
+            <strong>  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav__item--14wsO nav-link' %></strong>
           </li>
           <li class="nav-item">
-              <strong>  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link' %></strong>
+              <strong>  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav__item--14wsO nav-link' %></strong>
           </li>
-          <li class="nav-item">
-              
-          </li>
+          
       </ul>
 
    </div>
@@ -72,17 +71,37 @@
       <ul class="navbar-nav ml-auto flex-nowrap">
           
           <li class="nav-item">
-               <strong> <%= link_to "Sign up", new_user_registration_path, :class => 'nav-link'  %> </strong>
+               <strong> <%= link_to "Sign up", new_user_registration_path, :class => 'nav__item--14wsO nav-link'  %> </strong>
           </li>
           <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
           <li class="nav-item">
-            <strong><%= link_to "Login", new_user_session_path, :class => 'nav-link'  %></strong>
+            <strong><%= link_to "Login", new_user_session_path, :class => 'nav__item--14wsO nav-link'  %></strong>
           </li>
       </ul>
 
     </div>
 <% end %>
 </nav>
+
+<%# Second navabar %>
+<%# <% if user_signed_in? %> 
+<nav class="main-header navbar navbar-expand headline-module--headline__wrapper--2sPV6 extend "  style= "background: #e3342f;">
+   <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
+      
+  <div class="container ">
+     <div class="col-sm-16  mx-auto">
+     <div class=" ">
+         
+            <div class=" text-center headline-module--headline--2EZlD">
+              <p class="headline-module--headline--2EZlD", style="font-size:54px;"><%=@con%></p>
+            </div>
+
+    </div>
+       </div>
+    </div>
+
+  </nav>
+<%# <% end %> 
 
 
 

@@ -1,4 +1,4 @@
-
+<head><title><%=@con= "Articles"%></title></head>
 <table style="height: 60px;">
  <tbody>
    <tr>
@@ -11,9 +11,9 @@
 
 <%# <%= link_to 'New article', new_article_path %> 
  <% @articles.each do |article| %>
-<div class="jumbotron">
+<div class=" jumbotron bg-white ">
 <div class="">
-    <h1><%= article.title.capitalize %> <h5><span class="badge">~ <%= article.authername %></span></h5></h1>
+    <h1  class='glow'><%= article.title.capitalize%> <h5><span class="badge">~ <%= article.authername %></span></h5></h1>
     <p><%= article.text[0,200] %>.....</p>
     <div class='container'>
     <div class="pull-right label">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+  <title> <%= @con="Log in"%></title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -22,9 +22,10 @@
 <div class="col-sm-6  mx-auto ">
 <div class="register-box ">
   <div class="card card-outline card-primary">
-        <div class="card-header text-center">
-            <h2>Log in</h2>
-        </div>
+        <%# <div class="card-header text-center"> %>
+           
+            
+        <%# </div> %>
     <div class="card-body text-center">
       <p class="login-box-msg"></p>
        <%= form_for(resource, as: resource_name, url: session_path(resource_name), :class => "text-center") do |f| %>
