@@ -14,8 +14,9 @@
  *= require_tree .
  *= require_self
  *= require font-awesome
- *= require actiontext
+ *= require actiontext 
  */
+ 
 .b-body {
     background: rgb(218,225,231);
 }
