@@ -25,3 +25,5 @@ document.addEventListener("turbolinks:load", function() {
         $('[data-toggle="popover"]').popover()
     })
 })
+require("trix")
+require("@rails/actiontext")

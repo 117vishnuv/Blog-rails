@@ -31,10 +31,10 @@
    -->    
 
 <body class="hold-transition  layout-navbar-fixed b-body">
-<div class="   wrapper " > 
+<div class="   wrapper   " > 
 <nav class="main-header navbar navbar-expand headline-module--headline__wrapper--2sPV6" >    
   <div class=" nav-iem d-flex flex-grow-1  d-none d-sm-inline-block ">
-      <%= link_to root_path do %>
+      <%= link_to articles_path do %>
          <%=image_tag("ruby2.png", alt: "ruby logo" , :class => "header-module--logo")%>
       <% end %>
       <div class="w-100 text-right">
@@ -51,17 +51,14 @@
              Loged in as <strong><%= current_user.username %></strong>
          </li>
          <li class="nav-item">
-          <a class=" nav__item--14wsO nav-link" href="/">
-          Home
-          </a>
+            <a class=" nav__item--14wsO nav-link" href="/"> Home</a>
           </li>
-        
-          <li class="nav-item">
-          <li>
-          <li class="nav-item">
-            <strong>  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav__item--14wsO nav-link' %></strong>
-          </li>
-          <li class="nav-item">
+         <li class="nav-item">
+           <li>
+              <li class="nav-item">
+                <strong>  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav__item--14wsO nav-link' %></strong>
+              </li>
+            <li class="nav-item">
               <strong>  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav__item--14wsO nav-link' %></strong>
           </li>
           
