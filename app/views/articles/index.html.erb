@@ -13,16 +13,56 @@
 </table>
 
 
+<<<<<<< HEAD
 <%# <%= link_to 'New article', new_article_path %> 
 <div class=" container bg-white ">
 
 <% @articles.each do |article| %>
      <div class="">
+=======
+<% @articles.reverse.each do |article| %>
+  <div class="container" >
+    <div class="mt-5" ,style='margin-bottom:15px;'>
+      <div class="d-style btn btn-brc-tp border-2 bgc-white btn-outline-blue btn-h-outline-blue btn-a-outline-blue w-100 my-2 py-3 shadow-sm">
+       
+        <div class=" align-items-center">
+          <h1  class='glow align-items-center'><%= article.title.capitalize%> <h5>
+          </div>
+          <span class="badge">~ <%= article.authername %></span></h5></h1>
+             <p style='margin-bottom:15px;'><%= article.text.to_s[0,250] %>.....</p>
+          <div class='container ', style='margin-bottom:45px;'>
+           <div class="pull-right label">
+             <%# <button type="button" class="btn btn-outline-primary"><%= link_to 'Read', article_path(article),  :class => 'text-primary' </button> %> 
+              <%= link_to 'Read more..', article_path(article), {:style=>'color:#e3342f;'} %>
+              <% if current_user.username==article.authername %> 
+                  <%# <button type="button" class="btn btn-outline-success"><%= link_to 'Edit', edit_article_path(article) ,  :class => 'text-success'</button> %> 
+                  <i class="fa fa-edit" ></i>
+                  <%= link_to 'Edit', edit_article_path(article) ,  :style => 'color:#8e000b;' %>
+                  <%# <button type="button" class="btn btn-outline-danger"><%= link_to 'Delete', article_path(article),  :class => 'text-danger',method: :delete,data: { confirm: 'Are you sure?' }</button> %>
+                  <i class="fa fa-trash" ></i>
+                  <%= link_to 'Delete',article_path(article) ,  :class => '',method: :delete,data: { confirm: 'Are you sure?' }, :style => 'color:#000000;'%>
+              <% end %>   
+           </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+<% end %>
+
+
+<div class=" jumbotron bg-white ">
+ <% @articles.each do |article| %>
+<div class="">
+>>>>>>> main
     <h1  class='glow '><%= article.title.capitalize%> <h5><span class="badge">~ <%= article.authername %></span></h5></h1>
     <%# <p><%= sanitize(article.text[0,200]) %>
     <%# .....</p> %> 
     <p><%= article.text.to_s[0,350] %>.....</p>
+    
     <div class='container'>
+    <%# <p class="pull-left label"><%= article.likes.count <%= (article.likes.count) == 1 ? 'Like' : 'Likes'</p> %> 
     <div class="pull-right label">
         <%# <button type="button" class="btn btn-outline-primary"><%= link_to 'Read', article_path(article),  :class => 'text-primary' </button>  %>
         <%= link_to 'Read more..', article_path(article), {:style=>'color:#e3342f;'} %>
@@ -41,10 +81,9 @@
  </div>
  
  </div> 
-
-
 <% end %>
 
+<<<<<<< HEAD
 
 
 <div class="container">
@@ -94,3 +133,5 @@
     </div>
 </div>
 
+=======
+>>>>>>> main

@@ -17,17 +17,28 @@
 </table>
 
 <%# <%= link_to 'New article', new_article_path %> 
- <% @articles.each do |article| %>
-<div class=" jumbotron bg-white ">
-<%# <div class=""> %>
-  <h1  class='glow'><%= article.title.capitalize%> <h5><span class="badge">~ <%= article.authername %></span></h5></h1>
-    <p><%= article.text.to_s[0,250] %>.....</p>
-    <div class='container'>
-      <div class="pull-right label">
-        <%# <button type="button" class="btn btn-outline-primary"><%= link_to 'Read', article_path(article),  :class => 'text-primary' </button> %> 
-         <%= link_to 'Read more..', article_path(article), {:style=>'color:#e3342f;'} %>
+
+
+ <% @articles.reverse.each do |article| %>
+  <div class="container">
+    <div class="mt-5">
+      <div class="d-style btn btn-brc-tp border-2 bgc-white btn-outline-blue btn-h-outline-blue btn-a-outline-blue w-100 my-2 py-3 shadow-sm">
+       
+        <div class=" align-items-center">
+          <h1  class='glow align-items-center'><%= article.title.capitalize%> <h5>
+          </div>
+          <span class="badge">~ <%= article.authername %></span></h5></h1>
+             <p><%= article.text.to_s[0,250] %>.....</p>
+          <div class='container'>
+           <div class="pull-right label">
+             <%# <button type="button" class="btn btn-outline-primary"><%= link_to 'Read', article_path(article),  :class => 'text-primary' </button> %> 
+              <%= link_to 'Read more..', article_path(article), {:style=>'color:#e3342f;'} %>
+           </div>
+           </div>
+        </div>
       </div>
     </div>
-  <%# </div> %>
- </div> 
+  </div>
+  </div>
 <% end %>
+
