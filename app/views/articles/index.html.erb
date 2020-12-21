@@ -11,18 +11,13 @@
    </tr>
   </tbody>
 </table>
+<%  @categories.each do |category| %>
+      |<%= link_to category.category, articles_path(:cate => category ) %>| 
+    <% end %>
 
-
-<<<<<<< HEAD
-<%# <%= link_to 'New article', new_article_path %> 
-<div class=" container bg-white ">
-
-<% @articles.each do |article| %>
-     <div class="">
-=======
 <% @articles.reverse.each do |article| %>
   <div class="container" >
-    <div class="mt-5" ,style='margin-bottom:15px;'>
+    <div class="mt-2" >
       <div class="d-style btn btn-brc-tp border-2 bgc-white btn-outline-blue btn-h-outline-blue btn-a-outline-blue w-100 my-2 py-3 shadow-sm">
        
         <div class=" align-items-center">
@@ -51,87 +46,3 @@
   </div>
 <% end %>
 
-
-<div class=" jumbotron bg-white ">
- <% @articles.each do |article| %>
-<div class="">
->>>>>>> main
-    <h1  class='glow '><%= article.title.capitalize%> <h5><span class="badge">~ <%= article.authername %></span></h5></h1>
-    <%# <p><%= sanitize(article.text[0,200]) %>
-    <%# .....</p> %> 
-    <p><%= article.text.to_s[0,350] %>.....</p>
-    
-    <div class='container'>
-    <%# <p class="pull-left label"><%= article.likes.count <%= (article.likes.count) == 1 ? 'Like' : 'Likes'</p> %> 
-    <div class="pull-right label">
-        <%# <button type="button" class="btn btn-outline-primary"><%= link_to 'Read', article_path(article),  :class => 'text-primary' </button>  %>
-        <%= link_to 'Read more..', article_path(article), {:style=>'color:#e3342f;'} %>
-        <% if current_user.username==article.authername %> 
-        <%# <button type="button" class="btn btn-outline-success"><%= link_to 'Edit', edit_article_path(article) ,  :class => 'text-success'</button> %> 
-        <i class="fa fa-edit" ></i>
-          <%= link_to 'Edit', edit_article_path(article) ,  :style => 'color:#8e000b;' %>
-        <%# <button type="button" class="btn btn-outline-danger"><%= link_to 'Delete', article_path(article),  :class => 'text-danger',method: :delete,data: { confirm: 'Are you sure?' }</button> %>
-         <i class="fa fa-trash" ></i>
-          <%= link_to 'Delete',article_path(article) ,  :class => '',method: :delete,data: { confirm: 'Are you sure?' }, :style => 'color:#000000;'%>
-      <% end %>      
-       <%# <span class="label label-info">personal</span> %>
-     </div>
-     </div>
- 
- </div>
- 
- </div> 
-<% end %>
-
-<<<<<<< HEAD
-
-
-<div class="container">
-    <div class="col-md-12 col-lg-12">
-        <article class="post vt-post">
-            <div class="row">
-                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4">
-                    <div class="post-type post-img">
-                        <a href="#"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-responsive" alt="image post"></a>
-                    </div>
-                    <div class="author-info author-info-2">
-                        <ul class="list-inline">
-                            <li>
-                                <div class="info">
-                                    <p>Posted on:</p>
-                                    <strong>Mar 21, 2015</strong></div>
-                            </li>
-                            <li>
-                                <div class="info">
-                                    <p>Comments:</p>
-                                    <strong>127</strong></div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
-                        <h3 class="md-heading"><a href="#"><%=%> </a></h3>
-                    <div class="caption">
-                        <p> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. </p>
-                        <a class="btn btn-default" href="#" role="button">Read More</a> </div>
-                </div>
-            </div>
-        </article>
-  
-        <div class="pagination-wrap">
-            <nav aria-label="Page navigation example">
-              <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-              </ul>
-            </nav>
-        </div>
-        <div class="clearfix"></div>
-    </div>
-</div>
-
-=======
->>>>>>> main

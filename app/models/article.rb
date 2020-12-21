@@ -1,6 +1,6 @@
 class Article < ApplicationRecord
     has_rich_text :text
-    
+    belongs_to :category
     #make sure comments get dltd when srticle deletes 
     has_many :comments, dependent: :destroy 
    

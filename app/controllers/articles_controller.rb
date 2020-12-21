@@ -1,8 +1,5 @@
 class ArticlesController < ApplicationController
-  
   skip_before_action :authenticate_user!, :only => [:show]
-
-
   # http_basic_authenticate_with name: "admin", password: "11", except: [:index, :show]
   
     def new
@@ -10,7 +7,14 @@ class ArticlesController < ApplicationController
     end
     
     def index
-        @articles = Article.all
+        # @articles = Article.all
+        @categories = Category.all
+        cate = params[:cate]
+        if !cate.nil?
+          @articles = Article.where(:category_id => cate )
+        else
+          @articles = Article.all
+        end 
     end
     
     def show
@@ -50,6 +54,9 @@ class ArticlesController < ApplicationController
    
     private
     def article_params
-       params.require(:article).permit(:title, :text, :authername)
+       params.require(:article).permit(:title, :text, :authername, :category_id)
     end
 end
+
+
+
