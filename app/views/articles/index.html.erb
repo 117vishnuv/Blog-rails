@@ -1,48 +1,118 @@
 <head><title><%=@con= "Articles"%></title></head>
-<table style="height: 60px;">
- <tbody>
-   <tr>
-     <td  class='align-middle'>   
-      <button type="button" class="btn  btn-sm " style="background-color:#003031;">
-               <i class="fa fa-plus text-white" ></i>
-                   <%= link_to 'New article', new_article_path ,  :class => 'text-white' %>
-       </button>
-    </td>
-   </tr>
-  </tbody>
-</table>
-<%  @categories.each do |category| %>
-      |<%= link_to category.category, articles_path(:cate => category ) %>| 
-    <% end %>
 
-<% @articles.reverse.each do |article| %>
-  <div class="container" >
-    <div class="mt-2" >
-      <div class="d-style btn btn-brc-tp border-2 bgc-white btn-outline-blue btn-h-outline-blue btn-a-outline-blue w-100 my-2 py-3 shadow-sm">
-       
-        <div class=" align-items-center">
-          <h1  class='glow align-items-center'><%= article.title.capitalize%> <h5>
+ <%# <div class='container'> %>
+  <%# <div class='row'>
+    <div class='col-md-9'>  %>
+      <%# <div class='container'> %>
+         <%# <div class='container'> %>
+          <%# <table style="height: 60px;">
+            <tbody>
+              <tr>
+                <td  class='align-middle'>   
+                  <button type="button" class="btn  btn-sm " style="background-color:#003031;">
+                  <i class="fa fa-plus text-white" ></i>
+                  <%= link_to 'New article', new_article_path ,  :class => 'text-white' %>
+             <%#      </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>  %> 
+        <div class=' mt-3' >
+        <div class="dropdown pull-left">
+          <button type="button" class="btn  btn-sm " style="background-color:#003031;">
+                  <i class="fa fa-plus text-white" ></i>
+                  <%= link_to 'New article', new_article_path ,  :class => 'text-white' %>
+                  </button>           
           </div>
-          <span class="badge">~ <%= article.authername %></span></h5></h1>
-             <p style='margin-bottom:15px;'><%= article.text.to_s[0,250] %>.....</p>
-          <div class='container ', style='margin-bottom:45px;'>
-           <div class="pull-right label">
-             <%# <button type="button" class="btn btn-outline-primary"><%= link_to 'Read', article_path(article),  :class => 'text-primary' </button> %> 
-              <%= link_to 'Read more..', article_path(article), {:style=>'color:#e3342f;'} %>
-              <% if current_user.username==article.authername %> 
-                  <%# <button type="button" class="btn btn-outline-success"><%= link_to 'Edit', edit_article_path(article) ,  :class => 'text-success'</button> %> 
-                  <i class="fa fa-edit" ></i>
-                  <%= link_to 'Edit', edit_article_path(article) ,  :style => 'color:#8e000b;' %>
-                  <%# <button type="button" class="btn btn-outline-danger"><%= link_to 'Delete', article_path(article),  :class => 'text-danger',method: :delete,data: { confirm: 'Are you sure?' }</button> %>
-                  <i class="fa fa-trash" ></i>
-                  <%= link_to 'Delete',article_path(article) ,  :class => '',method: :delete,data: { confirm: 'Are you sure?' }, :style => 'color:#000000;'%>
-              <% end %>   
-           </div>
-           </div>
         </div>
+       </div>  
+
+        <div class='container'>
+        <div class="dropdown pull-right">
+          <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categories
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%  @categories.each do |category| %>
+             <p class="dropdown-item"> <%= link_to category.category, articles_path(:cate => category ) ,class:'',style: "color:black;" %>
+                           (<%= category.articles.count %>)</p> 
+             <% end %>            
+          </div>
+        </div>
+       </div>  
+
+    
+
+        <% @articles.reverse.each do |article| %>
+          <div class="container" >
+             <div class="mt-10" >
+               <div class="d-style btn btn-brc-tp border-2 bgc-white btn-outline-blue btn-h-outline-blue btn-a-outline-blue w-100 my-2 py-3 shadow-sm">
+       
+                 <div class=" align-items-center">
+                  <h1  class='glow align-items-center'><%= article.title.capitalize%> <h5>
+                  <span class="badge">~ <%= article.authername %></span></h5></h1>
+                 </div>
+                 <p style='margin-bottom:15px;'><%= article.text.to_s[0,250] %>.....</p>
+                 <div class='container ', style='margin-bottom:45px;'>
+                   <div class="pull-right label">
+                     <%# <button type="button" class="btn btn-outline-primary"><%= link_to 'Read', article_path(article),  :class => 'text-primary' </button> %> 
+                     <%= link_to 'Read more..', article_path(article), {:style=>'color:#e3342f;'} %>
+                     <% if current_user.username==article.authername %> 
+                       <%# <button type="button" class="btn btn-outline-success"><%= link_to 'Edit', edit_article_path(article) ,  :class => 'text-success'</button> %> 
+                       <i class="fa fa-edit" ></i>
+                       <%= link_to 'Edit', edit_article_path(article) ,  :style => 'color:#8e000b;' %>
+                       <%# <button type="button" class="btn btn-outline-danger"><%= link_to 'Delete', article_path(article),  :class => 'text-danger',method: :delete,data: { confirm: 'Are you sure?' }</button> %>
+                       <i class="fa fa-trash" ></i>
+                       <%= link_to 'Delete',article_path(article) ,  :class => '',method: :delete,data: { confirm: 'Are you sure?' }, :style => 'color:#000000;'%>
+                     <% end %>   
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
-  </div>
-  </div>
-<% end %>
+    
+   </div>
+</div> <% end %>
+</div>
+
+<%# 
+        <div class='col-md-3 '>
+          <div class='container mt-5' style='background-color:#white ;'>
+            <div class='card-mt-5 ' style='background:#white ;margin-top:70px;'>
+              <div class=' sub-headline-module--headline__wrapper--1D8QS '> 
+              <div class='  sub-headline-module--headline__wrapper--1D8QS ' style='background-color:#606f7b;'>
+                <h3 class='cate-link sub-headline-module--headline--3tQG3'>Categories</h3> 
+              </div>
+             
+              <div class='card-body my-card mt-1' >
+                <ul class='list-group mt-1'>
+                  <%  @categories.each do |category| %>
+                 <%#  <div class='row '>
+                    <div class='list-module--taglist--3mwr_'>
+                      <ul class='list-module--tagList__list--  '>
+                        <li class='list-module--tagList__link--17w8e mt-1'>
+                          <%= link_to category.category, articles_path(:cate => category ) ,class:' list-module--tagList__link--17w8e' %>
+                          <%# <span class='list-module--tagList__link--17w8e'> <%= category.articles.count</span> %>
+              <%#           </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <% end %>
+            <%#     </ul>
+              </div>
+            </div>
+          </div>  
+        </div> 
+ %>
+
+
+<%# </div> %>
+<%# </div> %>
+<%# <%  @categories.each do |category| %> 
+  <%# |<%= link_to category.category, articles_path(:cate => category ) %>
+<%# <% end %>
+
 
