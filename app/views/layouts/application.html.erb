@@ -41,8 +41,13 @@
                  <li class="nav-item ">
                  <strong  class = "nav-link  nav__item--14wsO" > [<%= current_user.username[0]  %>] </strong>
                  </li>
-                 <li class="nav-item">
-                   <strong><a class=" nav__item--14wsO nav-link" href="/"> Home</a></strong>
+                 <% if current_user.admin %>
+                   <li class="nav-item">
+                    <strong><%= link_to "admin",rails_admin_path ,:class => 'nav__item--14wsO nav-link'%></strong>
+                   </li>
+                 <% end%>
+                <li class="nav-item">
+                   <%# <strong><a class=" nav__item--14wsO nav-link" href="/"> Home</a></strong> %>
                 </li>
                 <li class="nav-item">
                 <li>

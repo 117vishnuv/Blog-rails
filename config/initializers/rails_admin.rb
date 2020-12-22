@@ -4,9 +4,18 @@ RailsAdmin.config do |config|
 
   ## == Devise ==
   # config.authenticate_with do
-  #   warden.authenticate! scope: :user
+    #  warden.authenticate! scope: :user
   # end
   # config.current_user_method(&:current_user)
+
+  #custom controller for devise user with admin coluomn
+  config.authorize_with do |controller|
+      unless current_user.try(:admin?)
+        alert[:error] = "You are not an admin"
+        redirect_to main_app.articles_path
+      end
+  end
+ 
 
   ## == CancanCan ==
   # config.authorize_with :cancancan
